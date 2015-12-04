@@ -5,45 +5,23 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu Dec  3 17:34:44 2015 Fossaert Thomas
-** Last update Thu Dec  3 17:35:33 2015 Fossaert Thomas
+** Last update Fri Dec  4 10:33:59 2015 Fossaert Thomas
 */
-
-int     get_number(char *str, int i, int neg)
-{
-  int   nb;
-  int   save;
-
-  nb = 0;
-  while (str[i] && str[i] >= '0' && str[i] <= '9')
-    {
-      save = nb;
-      if (save > (nb * 10 + (str[i] - '0')))
-	return (0);
-      nb = nb * 10 + (str[i++] - '0');
-    }
-  if (neg % 2 == 1)
-    nb = nb * -1;
-  return (nb);
-}
 
 int     my_getnbr(char *str)
 {
-  int   i;
-  int   nb;
-  int   neg;
+  int	nb;
+  int	i;
 
   i = 0;
-  neg = 0;
-  while (str[i])
+  nb = 0;
+  while (str[i] != 0)
     {
-      if (str[i] == '-')
-	neg++;
       if (str[i] >= '0' && str[i] <= '9')
-	{
-	  nb = get_number(str, i, neg);
-	  return (nb);
-	}
-      i++;
+	nb = nb * 10 + str[i] - '0';
+      i = i + 1;
     }
-  return (0);
+  if (str[0] == '-')
+    nb = nb * (-1);
+  return (nb);
 }

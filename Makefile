@@ -5,10 +5,13 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Thu Dec  3 17:26:14 2015 Fossaert Thomas
-## Last update Thu Dec  3 17:26:19 2015 Fossaert Thomas
+## Last update Thu Dec  3 18:13:36 2015 Fossaert Thomas
 ##
 
 SRC=		my_putchar.c \
+		BSQ.c \
+		lincol.c \
+		number.c \
 
 OBJ=            $(SRC:.c=.o)
 

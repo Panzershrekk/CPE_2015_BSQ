@@ -5,11 +5,30 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Thu Dec  3 17:08:50 2015 Fossaert Thomas
-** Last update Thu Dec  3 18:07:50 2015 Fossaert Thomas
+** Last update Fri Dec  4 11:48:32 2015 Fossaert Thomas
 */
 
-#include        <unistd.h>
-#include        <fcntl.h>
+#include	<fcntl.h>
+#include	<stdio.h>
+#include	<unistd.h>
+#include	<stdlib.h>
+
+int	count_first_line(char *str, int f)
+{
+  int	fd;
+  char	buffer[4096];
+  int	ret;
+
+  fd = open(str, O_RDONLY);
+  if (fd == -1)
+    return (-1);
+  read(fd, buffer, 4096);
+  while(buffer[f] != '\n')
+    f++;
+  f++;
+  close (fd);
+  return (f);
+}
 
 int	number_of_line(char *str)
 {
@@ -18,18 +37,37 @@ int	number_of_line(char *str)
   int	ret;
   int	l;
 
-  i = 0;
-  fd = open(filepath, O_RDONLY);
-  if (fd != -1)
-    return (-1);;
-  ret = -1
-    while (ret != 0)
-      ret = read(fd, buffer, 4096);
-  lines = my_getnbr(buff)
+  fd = open(str, O_RDONLY);
+  if (fd == -1)
+    return (-1);
+  ret = -1;
+  while (ret != 0)
+    ret = read(fd, buffer, 4096);
+  l = my_getnbr(buffer);
   close(fd);
-  return (lines);
+  return (l);
 }
 
-int	number_of_column()
+int	number_of_column(char *str)
 {
+  int	fd;
+  char	buffer[4096];
+  int	ret;
+  int	c;
+  int	f;
+
+  c = 0;
+  f = 0;
+  f = count_first_line(str, f);
+  printf("%i\n", f);
+  fd = open(str, O_RDONLY);
+  if (fd == -1)
+    return (-1);
+  while (buffer[f] != '\n')
+    {
+      c++;
+      f++;
+    }
+  close (fd);
+  return (c);
 }

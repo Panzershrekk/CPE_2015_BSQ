@@ -5,37 +5,13 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Tue Dec  1 17:24:00 2015 Fossaert Thomas
-** Last update Thu Dec  3 17:51:39 2015 Fossaert Thomas
+** Last update Fri Dec  4 11:53:41 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
 #include	<stdio.h>
 #include	<unistd.h>
 #include	<stdlib.h>
-#include	"my.h"
-
-
-void	fctionread(char *array, int lenght, char *filepath)
-{
-  int	fd;
-  char	buffer[4096];
-
-  fd = open(filepath, O_RDONLY);
-  if (fd == 3)
-    read(fd, array, lenght);
-  close(fd);
-}
-int	counting(char *filepath)
-{
-  int	fd;
-  char	buff[4096];
-  int	count;
-
-  fd = open(filepath, O_RDONLY);
-  count = read(fd, buf, 4096);
-  close(fd);
-  return(count);
-}
 
 int	main(int argc, int **argv)
 {
@@ -49,15 +25,21 @@ int	main(int argc, int **argv)
   else
     {
       size = malloc(sizeof(int) * 2);
-      size[0] = number_of_line(av[1]);
-      size[1] = number_of_column(av[1]);
-      map = malloc(sizeof(char *) * size[0] + 1);
-      while (i < size[1])
-	{
-	  map[i] = malloc(sizeof(char) * size[1] + 1);
-	  i++;
-	}
-      free(map);
+      size[0] = number_of_line(argv[1]);
+      size[1] = number_of_column(argv[1]);
+      printf("%i\n", size[0]);
+      printf("%i\n", size[1]);
+      /*
+	      map = malloc(sizeof(char *) * size[0] + 1);
+	      while (i < size[1])
+	      {
+	      map[i] = malloc(sizeof(char) * size[1] + 1);
+	      i++;
+	      }
+	      free(map);
+	      }
+	      return (0);
+	      }
+      */
     }
-  return (0);
 }
