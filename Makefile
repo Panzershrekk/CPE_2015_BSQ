@@ -5,13 +5,13 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Thu Dec  3 17:26:14 2015 Fossaert Thomas
-## Last update Thu Dec  3 18:13:36 2015 Fossaert Thomas
+## Last update Mon Dec 14 12:36:02 2015 Fossaert Thomas
 ##
 
-SRC=		my_putchar.c \
-		BSQ.c \
-		lincol.c \
-		number.c \
+SRC=		bsq.c		\
+		count.c
+
+CFLAGS=		-Wall -Wextra -ggdb3 -g
 
 OBJ=            $(SRC:.c=.o)
 
@@ -20,8 +20,7 @@ NAME=           bsq
 all:            $(NAME)
 
 
-$(NAME):
-		gcc -c $(SRC)
+$(NAME):	$(OBJ)
 		gcc -o $(NAME) $(OBJ)
 
 clean:
