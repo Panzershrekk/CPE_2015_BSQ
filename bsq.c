@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 11:48:59 2015 Fossaert Thomas
-** Last update Mon Dec 14 15:59:37 2015 Fossaert Thomas
+** Last update Mon Dec 14 17:36:17 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -105,6 +105,7 @@ int	main(int ac, char **av)
   tab2 = malloc(sizeof(char *) * j);
   my_malloc(i, j, k, tab2);
   tableau(tab, tab2);
+  square(j, k, tab2);
   printf("\n");
   return (0);
 }

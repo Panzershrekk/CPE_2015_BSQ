@@ -5,11 +5,12 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Thu Dec  3 17:26:14 2015 Fossaert Thomas
-## Last update Mon Dec 14 12:36:02 2015 Fossaert Thomas
+## Last update Mon Dec 14 16:16:34 2015 Fossaert Thomas
 ##
 
-SRC=		bsq.c		\
-		count.c
+SRC=		bsq.c \
+		count.c \
+		square.c
 
 CFLAGS=		-Wall -Wextra -ggdb3 -g
 
