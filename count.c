@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 12:12:14 2015 Fossaert Thomas
-** Last update Mon Dec 14 13:04:20 2015 Fossaert Thomas
+** Last update Tue Dec 15 08:44:06 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -27,7 +27,7 @@ int		count_line(char *tab)
 	j++;
       i++;
     }
-  return (j + 1);
+  return (j);
 }
 
 int		count_column(char *tab)
@@ -46,5 +46,5 @@ int		count_column(char *tab)
       i++;
       a++;
     }
-  return (a);
+  return (a - 3);
 }

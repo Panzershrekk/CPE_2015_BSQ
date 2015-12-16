@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 11:48:59 2015 Fossaert Thomas
-** Last update Mon Dec 14 17:36:17 2015 Fossaert Thomas
+** Last update Wed Dec 16 09:36:01 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -43,7 +43,7 @@ void	tableau(char *tab, char **tab2)
 	  k = 0;
 	}
       tab2[j][k] = tab[i];
-      printf("%c", tab2[j][k]);
+      /* printf("%c", tab2[j][k]);*/
       i++;
       k++;
     }
@@ -85,8 +85,6 @@ void	my_read(char *filepath, char *tab, int x)
 
 int	main(int ac, char **av)
 {
-  /*t_info_sq	current_sq;
-    t_info_sq	biggest_sq;*/
   int		ret;
   char		*tab;
   char		**tab2;
@@ -105,7 +103,7 @@ int	main(int ac, char **av)
   tab2 = malloc(sizeof(char *) * j);
   my_malloc(i, j, k, tab2);
   tableau(tab, tab2);
-  square(j, k, tab2);
+  mallocking(tab2, k, j);
   printf("\n");
   return (0);
 }
