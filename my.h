@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec  7 18:06:19 2015 Fossaert Thomas
-** Last update Sat Dec 19 14:19:58 2015 Fossaert Thomas
+** Last update Sun Dec 20 20:34:56 2015 Fossaert Thomas
 */
 
 #ifndef		_MY_H_
@@ -17,9 +17,6 @@ void		my_read(char *filepath, char *tab, int x);
 int		count_line(char *tab);
 int		count_column(char *tab);
 void		square(char **tab, int li, int co);
-void		check_map(char **tab2, int x, int y);
-void		mallocking(char **tab2, int c, int l);
-void		area_max(int *var, int *index, char **tab2);
 void		display_bsq(char **tab, int **dem, int l, int c);
 void		my_putchar(char c);
 int		find_max(char **tab, int **dem, int c, int l);

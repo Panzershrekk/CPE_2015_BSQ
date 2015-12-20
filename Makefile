@@ -5,7 +5,7 @@
 ## Login   <fossae_t@epitech.net>
 ## 
 ## Started on  Thu Dec  3 17:26:14 2015 Fossaert Thomas
-## Last update Sun Dec 20 15:20:42 2015 Fossaert Thomas
+## Last update Sun Dec 20 20:17:07 2015 Fossaert Thomas
 ##
 
 SRC=		bsq.c \

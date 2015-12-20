@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 16:00:28 2015 Fossaert Thomas
-** Last update Sun Dec 20 15:20:20 2015 Fossaert Thomas
+** Last update Sun Dec 20 19:42:14 2015 Fossaert Thomas
 */
 
 #include	<stdio.h>
@@ -105,7 +105,7 @@ int	find_max(char **tab, int **dem, int c, int l)
     {
       while (i != c)
 	{
-	  if (dem[j][i] > m)
+	  if (dem[j][i] >= m)
 	    m = dem[j][i];
 	  i++;
 	}

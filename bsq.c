@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 11:48:59 2015 Fossaert Thomas
-** Last update Sun Dec 20 19:16:58 2015 Fossaert Thomas
+** Last update Sun Dec 20 20:31:42 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -56,6 +56,8 @@ int	take(char *filepath, int x)
   fd = open(filepath, O_RDONLY);
   if (fd != -1)
     ret = read(fd, buffer, x);
+  else
+    return (-1),
   close(fd);
   return (ret);
 }
@@ -100,7 +102,10 @@ int	main(int ac, char **av)
   k = count_column(tab);
   tab2 = malloc(sizeof(char *) * j);
   my_malloc(i, j, k, tab2);
+  if (j > 500 && k > 500)
+    return (-1);
   tableau(tab, tab2);
   my_tab(tab2, k, j);
+  free(tab2);
   return (0);
 }
