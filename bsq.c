@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 11:48:59 2015 Fossaert Thomas
-** Last update Sun Dec 20 14:14:07 2015 Fossaert Thomas
+** Last update Sun Dec 20 19:16:58 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -34,7 +34,6 @@ void	tableau(char *tab, char **tab2)
   k = 0;
   while (tab[i] != '\n')
     i++;
-  i++;
   while (tab[i] != '\0')
     {
       if (tab[i] == '\n')
