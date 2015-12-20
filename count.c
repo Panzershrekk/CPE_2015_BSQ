@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 12:12:14 2015 Fossaert Thomas
-** Last update Tue Dec 15 08:44:06 2015 Fossaert Thomas
+** Last update Thu Dec 17 10:34:41 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -19,8 +19,8 @@ int		count_line(char *tab)
   int	i;
   int	j;
 
-  i = 0;
-  j = 0;
+  i = 1;
+  j = 1;
   while (tab[i] != '\0')
     {
       if (tab[i] == '\n')

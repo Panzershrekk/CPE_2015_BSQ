@@ -5,100 +5,204 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 16:00:28 2015 Fossaert Thomas
-** Last update Wed Dec 16 09:45:06 2015 Fossaert Thomas
+** Last update Sun Dec 20 14:14:38 2015 Fossaert Thomas
 */
 
 #include	<stdio.h>
 #include	<stdlib.h>
 #include	"my.h"
 
-void	display_square(char **tab2, int stock[1], int size, int *var)
+void	my_tab(char **tab, int c, int l)
 {
   int	i;
-  int	j;
-  int	x;
-  int	y;
+  int	**dem;
 
   i = 0;
-  j = 1;
-}
-
-int	*find_the_square(int c, int l, char **tab2, int *var)
-{
-  int	fir;
-  int	sec;
-
-  var[2] = 0;
-  while (var[2] <= var[3])
+  dem = malloc(sizeof(int *) * l);
+  while (i <= l)
     {
-      sec = l + var[3];
-      while (l <= sec)
-	{
-	  fir = c + var[3];
-	  while (c <= fir)
-	    {
-	      if (l > (var[1] - 1))
-		return (var);
-	      if (c > (var[0] -1))
-		fir = 0;
-	      if (tab2[l][c] != '.')
-		return (var);
-	      c++;
-	    }
-	  c = var[5];
-	  l++;
-	}
-      l = var[6];
-      var[2]++;
+      dem[i] = malloc(sizeof(int) * c);
+      i++;
     }
-  var[3]++;
-  find_the_square(c, l, tab2, var);
-  return (var);
+  fill_tab(tab, dem, c, l);
 }
 
-void	check_bsq(char **tab2, int *var)
+void	fill_tab(char **tab, int **dem, int c, int l)
 {
   int	i;
   int	j;
-  int	size;
-  int	stock[1];
 
-  size = 0;
-  j = 1;
   i = 0;
-  while (j != var[1])
+  j = 0;
+  while (i != c)
     {
-      var[2] = 0;
-      var[3] = 0;
-      var[4] = 0;
-      var[6] = j;
-      while (i != var[0])
+      if (tab[l][c] == '.')
+	dem[l][c] = 1;
+      if (tab[l][c] == 'o')
+	dem[l][c] = 0;
+      i++;
+    }
+  i = 0;
+  while (j != l)
+    {
+      if (tab[l][c] == '.')
+	dem[l][c] = 1;
+      if (tab[l][c] == 'o')
+	dem[l][c] = 0;
+      j++;
+    }
+  find_square(tab, dem, c, l);
+}
+
+int	calc_min(int **dem, int i, int j)
+{
+  if (dem[j][i-1] < dem[j-1][i-1] && dem[j][i-1] < dem[j-1][i])
+    return (dem[j][i-1]);
+  else if (dem[j-1][i-1] < dem[j][i-1] && dem[j-1][i-1] < dem[j-1][i])
+    return (dem[j-1][i-1]);
+  else if (dem[j-1][i] < dem[j-1][i-1] && dem[j-1][i] < dem[j][i-1])
+    return (dem[j-1][i]);
+}
+
+void	find_square(char **tab, int **dem, int c, int l)
+{
+  int	i;
+  int	j;
+  int	m;
+
+  i = 0;
+  j = 1;
+  m = 0;
+  while (j != l)
+    {
+      while (i != c + 1)
 	{
-	  var[5] = i;
-	  var = find_the_square(i, j, tab2, var);
-	  if (var[3] > size)
+	  if (tab[j][i] == '.')
 	    {
-	      size = var[3];
-	      stock[0] = var[5];
-	      stock[1] = var[6];
+	      m = calc_min(dem, i, j) + 1;
+	      dem[j][i] = m;
 	    }
+	  if (tab[j][i] == 'o')
+	    dem[j][i] = 0;
+	  i++;
+	}
+      i = 1;
+      j++;
+    }
+  final(tab, dem, c, l);
+}
+
+int	find_max(char **tab, int **dem, int c, int l)
+{
+  int	i;
+  int	j;
+  int	m;
+
+  i = 0;
+  j = 0;
+  m = 0;
+  while (j != l)
+    {
+      while (i != c)
+	{
+	  if (dem[j][i] > m)
+	    m = dem[j][i];
 	  i++;
 	}
       i = 0;
       j++;
     }
-  display_square(tab2, stock, size, var);
+  return (m);
 }
 
-void	mallocking(char **tab2, int c, int l)
+int	max_pos_y(char **tab, int **dem, int c, int l)
 {
-  int	*var;
+  int	i;
+  int	j;
+  int	m;
 
-  var = malloc(sizeof(int) * 6);
-  var[0] = c;
-  var[1] = l;
-  var[2] = 0;
-  var[3] = 0;
-  var[4] = 0;
-  check_bsq(tab2, var);
+  i = 0;
+  j = 0;
+  m = find_max(tab, dem, c, l);
+  while (j != l)
+    {
+      while (i != c)
+	{
+	  if (dem[j][i] == m)
+	    return (j);
+	  i++;
+	}
+      i = 0;
+      j++;
+    }
+  return (j);
+}
+
+int	max_pos_x(char **tab, int **dem, int c, int l)
+{
+  int	i;
+  int	j;
+  int	m;
+
+  i = 0;
+  j = 0;
+  m = find_max(tab, dem, c, l);
+  while (j != l)
+    {
+      while (i != c)
+	{
+	  if (dem[j][i] == m)
+	    return (i);
+	  i++;
+	}
+      i = 0;
+      j++;
+    }
+  return (i);
+}
+
+void	final(char **tab, int **dem, int c, int l)
+{
+  int	x;
+  int	y;
+  int	m;
+  int	x_min;
+  int	y_min;
+
+  x = max_pos_x(tab, dem, c, l);
+  y = max_pos_y(tab, dem, c, l);
+  m = find_max(tab, dem, c, l);
+  x_min = x - m;
+  y_min = y - m;
+  while (y != y_min)
+    {
+      while (x != x_min)
+	{
+	  tab[y][x] = 'x';
+	  x--;
+	}
+      x = max_pos_x(tab, dem, c, l);
+      y--;
+    }
+  display_bsq(tab, dem, c, l);
+}
+
+void	display_bsq(char ** tab, int **dem, int c, int l)
+{
+  int	i;
+  int	j;
+
+  i = 0;
+  j = 1;
+  while (j != l)
+    {
+      while (i != c + 2)
+	{
+	  my_putchar(tab[j][i]);
+	  i++;
+	}
+      i = 1;
+      j++;
+      my_putchar('\n');
+    }
 }

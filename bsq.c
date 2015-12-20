@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 11:48:59 2015 Fossaert Thomas
-** Last update Wed Dec 16 09:36:01 2015 Fossaert Thomas
+** Last update Sun Dec 20 14:14:07 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -43,7 +43,6 @@ void	tableau(char *tab, char **tab2)
 	  k = 0;
 	}
       tab2[j][k] = tab[i];
-      /* printf("%c", tab2[j][k]);*/
       i++;
       k++;
     }
@@ -103,7 +102,6 @@ int	main(int ac, char **av)
   tab2 = malloc(sizeof(char *) * j);
   my_malloc(i, j, k, tab2);
   tableau(tab, tab2);
-  mallocking(tab2, k, j);
-  printf("\n");
+  my_tab(tab2, k, j);
   return (0);
 }
