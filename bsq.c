@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Mon Dec 14 11:48:59 2015 Fossaert Thomas
-** Last update Sun Dec 20 20:40:17 2015 Fossaert Thomas
+** Last update Mon Dec 21 11:13:52 2015 Fossaert Thomas
 */
 
 #include	<fcntl.h>
@@ -106,7 +106,6 @@ int	main(int ac, char **av)
     return (-1);
   tableau(tab, tab2);
   my_tab(tab2, k, j);
-  my_putchar('\n');
   free(tab2);
   return (0);
 }
