@@ -5,7 +5,7 @@
 ** Login   <fossae_t@epitech.net>
 **
 ** Started on  Sun Dec 20 15:16:39 2015 Fossaert Thomas
-** Last update Sun Dec 20 20:16:48 2015 Fossaert Thomas
+** Last update Tue Dec 22 12:11:15 2015 Fossaert Thomas
 */
 
 #include	<stdlib.h>
@@ -102,5 +102,4 @@ void	display_bsq(char ** tab, int **dem, int c, int l)
       j++;
       my_putchar('\n');
     }
-  free (dem);
 }
